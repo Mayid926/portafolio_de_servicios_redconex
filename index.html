@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedConex | Ingeniería, Energía y Conectividad</title>
+    
+    <!-- Hoja de Estilos Principal -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Librería FontAwesome para Íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Canvas para Fondo Interactivo de Nodos -->
+    <canvas id="network-canvas"></canvas>
+
+    <!-- Encabezado de Navegación Limpio -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="brand-blue">Red</span><span class="brand-cyan">Conex</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="javascript:void(0)" onclick="openNosotrosModal()">Nosotros</a></li>
+
+                <li><a href="https://wa.me/573219195636?text=Hola%20RedConex,%20deseo%20ponerme%20en%20contacto%20con%20ustedes."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="nav-link">Contacto</a>
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección Hero de Presentación -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Soluciones Integrales de <span class="highlight">Ingeniería y Tecnología</span></h1>
+            <p>Impulsamos el futuro con energía renovable, proyectos fotovoltaicos y redes de alta eficiencia.</p>
+            <a href="#servicios" class="btn-primary">Explorar Portafolio</a>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="services-container">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <div class="services-grid">
+
+            <!-- Tarjeta 1: Energía Solar -->
+            <div class="card card-with-dropdown">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&auto=format&fit=crop&q=80" alt="Granja Solar RedConex" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Energía Solar</h3>
+                    <p>Diseño y construcción de granjas solares, minigranjas, techos fotovoltaicos y sistemas de autogeneración a gran escala.</p>
+                    
+                    <div class="card-dropdown-wrapper">
+                        <button class="btn-card">
+                            Conocer Más <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                        
+                        <ul class="card-dropdown-menu">
+                            <li><a href="javascript:void(0)" onclick="openFarmsModal()"><i class="fa-solid fa-solar-panel"></i> Granjas Solares & Minigranjas</a></li>
+                            <li><a href="javascript:void(0)" onclick="openSolarModal()"><i class="fa-solid fa-leaf"></i> Cubiertas Solares - Bioarquitectura</a></li>
+                            <li><a href="javascript:void(0)" onclick="openResidentialModal()"><i class="fa-solid fa-house-solar"></i> Techos Solares Residenciales</a></li>
+                            <li><a href="javascript:void(0)" onclick="openEcoparkingModal()"><i class="fa-solid fa-square-parking"></i> Ecoparking</a></li>
+                            <li><a href="javascript:void(0)" onclick="openLuminariasModal()"><i class="fa-solid fa-lightbulb"></i> Luminarias Solares</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: ElectroMovilidad -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&auto=format&fit=crop&q=80" alt="Cargadores Vehículos Eléctricos" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>ElectroMovilidad</h3>
+                    <p>Infraestructura de carga para vehículos eléctricos, electrolineras comerciales e instalación de cargadores inteligentes.</p>
+                    <button class="btn-card" onclick="openElectromovilidadModal()">Conocer Más <i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Eficiencia Energética -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&auto=format&fit=crop&q=80" alt="Eficiencia Energética" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Eficiencia Energética</h3>
+                    <p>Auditorías energéticas, compensación reactiva, estudio de pérdidas y optimización del consumo eléctrico industrial.</p>
+                    <button class="btn-card" onclick="openEficienciaModal()">Conocer Más <i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4: Servicios de Ingeniería -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80" alt="Servicios de Ingeniería" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Servicios de Ingeniería</h3>
+                    <p>Diseño y ejecución de redes eléctricas de media y baja tensión, montaje de subestaciones y trámites normativos RETIE.</p>
+                    <button class="btn-card" onclick="openIngenieriaModal()">Conocer Más <i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 5: Domótica e Inmótica -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=800&auto=format&fit=crop&q=80" alt="Domótica Inteligente" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Domótica e Inmótica</h3>
+                    <p>Automatización integral de iluminación, climatización, persianas y gestión inteligente para hogares y edificios corporativos.</p>
+                    <button class="btn-card" onclick="openDomoticaModal()">Conocer Más <i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 6: Seguridad Electrónica -->
+            <div class="card-servicio">
+                <div class="caso-img-wrapper">
+                    <img src="images/seguridad_electronica.jpg" alt="Seguridad Electrónica" class="caso-img">
+                    </div>
+                <div class="card-content">
+                    <h3>Seguridad Electrónica</h3>
+                    <p>Circuitos cerrados de TV (CCTV), control de acceso biométrico, detección temprana de incendios y monitoreo remoto.</p>
+                    <button class="btn-card" onclick="openSeguridadModal()">Conocer Más <i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 7: Consultoría y Proyectos TIC -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&auto=format&fit=crop&q=80" alt="Proyectos TIC Fibra Óptica" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h3>Consultoría y Proyectos TIC</h3>
+                    <p>Redes de fibra óptica, cableado estructurado, enlaces inalámbricos de microondas e interconexión corporativa.</p>
+                    <button class="btn-card" onclick="openConsultoriaModal()">Conocer Más <i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- VENTANA MODAL 1: Cubiertas Solares - Bioarquitectura -->
+<div id="solar-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal-btn" onclick="closeSolarModal()">&times;</span>
+        <div class="modal-grid">
+            <div class="modal-info">
+                <h2>Transformamos la Energía</h2>
+                <p>En <strong>RedConex</strong> le apuntamos al desarrollo sostenible, donde los recursos naturales son utilizados como fuente principal de abastecimiento y suministro de energía; logrando brindar soluciones integrales y un acompañamiento técnico interdisciplinario para obtener del sol el mejor aliado permitiendo la eficiencia energética.</p>
+                
+                <!-- ESTRUCTURA IDÉNTICA A LA INSPECCIONADA EN DEVTOOLS -->
+                <!-- Opción 1 (Archivo local para cuando la página esté publicada): href="pdf/Techos_y_Cubiertas_Solares.pdf" -->
+                <!-- Opción 2 (Enlace directo servidor para ver en Live Server sin pantalla en blanco): -->
+                <a href="./pdf/techos_cubiertas_solares.pdf" target="_blank" class="btn-modal-cta">
+                    <span>CONOCE MÁS</span>
+                </a>
+            </div>
+            
+            <div class="modal-slider">
+                <img src="images/cubierta_solar_1.jpg" alt="Techos Solares 1" class="slider-img">
+                <img src="images/cubierta_solar_2.jpg" alt="Techos Solares 2" class="slider-img">
+                <img src="images/cubierta_solar_3.jpeg" alt="Techos Solares 3" class="slider-img">
+                <div class="slider-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- VENTANA MODAL 2: Techos Solares Residenciales -->
+    <div id="residential-modal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close-modal-btn" onclick="closeResidentialModal()">&times;</span>
+            <div class="modal-grid">
+                <div class="modal-info modal-scrollable">
+                    <h2>Tejas Solares</h2>
+                    <p>Nuestro portafolio de productos residenciales renovables cuenta con una solución de Tejas Solares que busca mantener el aspecto estético del diseño del techo.</p>
+                    <ul class="modal-list">
+                        <li><i class="fa-solid fa-check-circle"></i> <strong>Materiales:</strong> Hormigón o Arcilla</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Estéticamente atractivas</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Alto Rendimiento en condiciones de poca exposición solar</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Sin necesidad de agujeros adicionales al revestimiento.</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Garantía de 80% potencia máxima hasta después de 25 años</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Resistentes a la intemperie</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Máxima eficiencia</li>
+                    </ul>
+                    <hr class="modal-divider">
+                    <h3>Diseño de Techo</h3>
+                    <ul class="modal-list">
+                        <li><i class="fa-solid fa-house"></i> Compatible con chimeneas, salidas de ventilación y diseños de techo existentes para no entrar en la necesidad de rediseñar la casa.</li>
+                        <li><i class="fa-solid fa-hammer"></i> Instalado de la misma manera que una teja de hormigón regular.</li>
+                    </ul>
+                    <hr class="modal-divider">
+                    <h3>Instalación</h3>
+                    <ul class="modal-list">
+                        <li><i class="fa-solid fa-shield-halved"></i> La tecnología detrás de las conexiones, ha demostrado ser una de las más seguras del mercado.</li>
+                        <li><i class="fa-solid fa-plug"></i> Caja de conexiones dos piezas para una simple y confiable instalación. Conectores MC4</li>
+                    </ul>
+                    <br>
+                    <a href="https://wa.me/573219195636?text=Hola%20RedConex,%20deseo%20cotizar%20un%20proyecto%20de%20Techos%20Solares%20Residenciales."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-modal-cta"
+                        onclick="closeResidentialModal()"
+                    >COTIZAR PROYECTO</a>
+
+                </div>
+                <div class="modal-slider" id="res-slider">
+                    <img src="images/tejas_solares_1.jpeg" alt="Tejas Solares" class="res-slider-img active">
+                    <img src="images/tejas_solares_2.jpeg" alt="Diseño de Techo" class="res-slider-img">
+                    <img src="images/tejas_solares_3.jpeg" alt="Instalación Conectores MC4" class="res-slider-img">
+                    <div class="slider-dots">
+                        <span class="res-dot active"></span>
+                        <span class="res-dot"></span>
+                        <span class="res-dot"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VENTANA MODAL 3: ECOPARKING -->
+    <div id="ecoparking-modal" class="modal">
+        <div class="modal-content modal-xlarge">
+            <span class="close-modal-btn" onclick="closeEcoparkingModal()">&times;</span>
+            
+            <div class="modal-scrollable">
+                <!-- SECCIÓN SUPERIOR: Carrusel 3 imágenes -->
+                <div class="modal-grid eco-top-grid">
+                    <div class="modal-info">
+                        <h2>Diseño Escalable y Modular</h2>
+                        <p>En <strong>RedConex</strong> le apuntamos al desarrollo sostenible, donde los recursos naturales son utilizados como fuente principal de abastecimiento y suministro de energía; logrando brindar soluciones integrales y un acompañamiento técnico interdisciplinario para obtener del sol el mejor aliado permitiendo la eficiencia energética.</p>
+                        <a href="./pdf/ecoparking.pdf" target="_blank" class="btn-modal-cta"><span>CONOCE MÁS</span></a>
+                    </div>
+                    <div class="modal-slider" id="eco-slider">
+                        <img src="images/ecoparking-1.jpg" alt="Ecoparking Superior 1" class="eco-slider-img active">
+                        <img src="images/ecoparking-2.jpg" alt="Ecoparking Superior 2" class="eco-slider-img">
+                        <img src="images/ecoparking-3.jpg" alt="Ecoparking Superior 3" class="eco-slider-img">
+                        <div class="slider-dots">
+                            <span class="eco-dot active"></span>
+                            <span class="eco-dot"></span>
+                            <span class="eco-dot"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="modal-divider eco-divider">
+
+                <!-- TÍTULO DE SECCIÓN INFERIOR -->
+                <div class="eco-section-title">
+                    <h3>Cubiertas / Techos Solares de uso Residencial, Industrial y/o Comercial</h3>
+                </div>
+
+                <!-- SECCIÓN INFERIOR: 3 Tarjetas Estáticas -->
+                <div class="eco-cards-grid">
+                    <div class="eco-card">
+                        <div class="eco-card-img-wrapper">
+                            <img src="images/eco-residencial.jpg" alt="Ecoparking Residencial" class="eco-static-img">
+                        </div>
+                        <div class="eco-card-body">
+                            <h4>Ecoparking Residencial</h4>
+                            <p class="eco-card-desc">Parqueadero ecológico adaptable para viviendas o condominios.</p>
+                            <ul class="modal-list">
+                                <li><i class="fa-solid fa-check"></i> Marquesina solar.</li>
+                                <li><i class="fa-solid fa-check"></i> Capacidad de 2 a 4 vehículos en carga simultánea.</li>
+                                <li><i class="fa-solid fa-check"></i> Parqueo de scooters o bicicletas.</li>
+                                <li><i class="fa-solid fa-check"></i> Instalación de 29 a 34 paneles de acuerdo a la necesidad.</li>
+                                <li><i class="fa-solid fa-check"></i> Tamaño, 17 m2 - 27 m2 aprox.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="eco-card">
+                        <div class="eco-card-img-wrapper">
+                            <img src="images/eco-empresarial.jpg" alt="Ecoparking Empresarial" class="eco-static-img">
+                        </div>
+                        <div class="eco-card-body">
+                            <h4>Ecoparking Empresarial</h4>
+                            <p class="eco-card-desc">Parqueadero ecológico adaptable para empresas o centros comerciales.</p>
+                            <ul class="modal-list">
+                                <li><i class="fa-solid fa-check"></i> Marquesina solar.</li>
+                                <li><i class="fa-solid fa-check"></i> Capacidad de 16 vehículos en carga simultánea.</li>
+                                <li><i class="fa-solid fa-check"></i> Parqueo de scooters o bicicletas.</li>
+                                <li><i class="fa-solid fa-check"></i> Instalación de 69 paneles de acuerdo a la necesidad.</li>
+                                <li><i class="fa-solid fa-check"></i> Tamaño, 134.8 m2 aprox.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="eco-card">
+                        <div class="eco-card-img-wrapper">
+                            <img src="images/eco-maderamen.jpg" alt="Ecoparking Maderamen" class="eco-static-img">
+                        </div>
+                        <div class="eco-card-body">
+                            <h4>Ecoparking Maderamen</h4>
+                            <p class="eco-card-desc">Parqueadero ecológico adaptable para zonas campestres.</p>
+                            <ul class="modal-list">
+                                <li><i class="fa-solid fa-check"></i> Marquesina solar.</li>
+                                <li><i class="fa-solid fa-check"></i> Capacidad de 1 a 2 vehículos en carga simultánea.</li>
+                                <li><i class="fa-solid fa-check"></i> Parqueo de scooters o bicicletas.</li>
+                                <li><i class="fa-solid fa-check"></i> Instalación de 9 paneles de acuerdo a la necesidad.</li>
+                                <li><i class="fa-solid fa-check"></i> Tamaño, 17.5 m2 aprox.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VENTANA MODAL 4: LUMINARIAS SOLARES -->
+    <div id="luminarias-modal" class="modal">
+        <div class="modal-content modal-xlarge">
+            <span class="close-modal-btn" onclick="closeLuminariasModal()">&times;</span>
+            
+            <div class="modal-scrollable">
+                <!-- SECCIÓN SUPERIOR: Carrusel con 4 imágenes -->
+                <div class="modal-grid eco-top-grid">
+                    <div class="modal-info">
+                        <h2>Luminaria Solar</h2>
+                        <p>En <strong>RedConex</strong> le apuntamos al desarrollo sostenible, donde los recursos naturales son utilizados como fuente principal de abastecimiento y suministro de energía.</p>
+                        <p>La línea de productos de iluminación solar ofrece comunicación de iluminación autónoma con energía solar de alta tecnología, ciudades inteligentes y columnas de energía eléctrica que se cargan a sí mismas a través de sus exclusivos paneles solares cilíndricos.</p>
+                        <a href="./pdf/luminarias_solares.pdf" target="_blank" class="btn-modal-cta"><span>CONOCE MÁS</span></a>
+                    </div>
+                    
+                    <div class="modal-slider" id="lum-slider">
+                        <img src="images/luminaria-1.jpg" alt="Luminaria Solar 1" class="lum-slider-img active">
+                        <img src="images/luminaria-2.jpg" alt="Luminaria Solar 2" class="lum-slider-img">
+                        <img src="images/luminaria-3.jpg" alt="Luminaria Solar 3" class="lum-slider-img">
+                        <img src="images/luminaria-4.jpg" alt="Luminaria Solar 4" class="lum-slider-img">
+                        <div class="slider-dots">
+                            <span class="lum-dot active"></span>
+                            <span class="lum-dot"></span>
+                            <span class="lum-dot"></span>
+                            <span class="lum-dot"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="modal-divider eco-divider">
+
+                <!-- Bloque 1: Sistema de Conexión a la Red -->
+                <div class="lum-section text-center">
+                    <h3>Sistema de Conexión a la Red</h3>
+                    <p class="lum-subtitle">Con una eficiencia superior al 23%, las células solares incorporadas son las más eficientes y de mejor funcionamiento disponibles en el mercado.</p>
+                    
+                    <div class="modal-grid lum-block-grid">
+                        <div class="lum-img-box">
+                            <img src="images/luminaria-5.jpg" alt="Sistema de Conexión a la Red" class="lum-static-img">
+                        </div>
+                        <div class="lum-info-box">
+                            <div class="lum-card-item">
+                                <h4>Sin conexión a la red eléctrica (Off-Grid)</h4>
+                                <ul>
+                                    <li>Solo batería. Instalación fácil.</li>
+                                    <li>Sin costes de electricidad.</li>
+                                </ul>
+                            </div>
+                            <div class="lum-card-item">
+                                <h4>Híbrido</h4>
+                                <ul>
+                                    <li>Batería y conexión a la red eléctrica.</li>
+                                    <li>Ideal para ubicaciones con una red eléctrica no confiable.</li>
+                                </ul>
+                            </div>
+                            <div class="lum-card-item">
+                                <h4>Conexión a la red eléctrica (On-Grid)</h4>
+                                <ul>
+                                    <li>Conectado a la red eléctrica, sin batería.</li>
+                                    <li>Alimenta la red eléctrica con electricidad.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="modal-divider">
+
+                <!-- Bloque 2: Diseño Adaptable y Luminaria Autónoma -->
+                <div class="lum-section">
+                    <div class="text-center">
+                        <h3>Diseño Adaptable</h3>
+                        <p class="lum-subtitle">Su diseño le permite ajustar el poste de luz solar según su aplicación específica. Nuestra solución está disponible en una gama de alturas estándar (4, 5, 6 y 8 metros), pero también se puede personalizar según sus necesidades.</p>
+                    </div>
+                    
+                    <div class="modal-grid lum-block-grid reverse-mobile">
+                        <div class="lum-info-box center-vertically">
+                            <h4>Luminaria Autónoma con Conectividad</h4>
+                            <p>Todos los postes están conectados a una plataforma online segura. Esta plataforma le otorga un control total sobre sus instalaciones. A través de una interfaz visual e intuitive, la plataforma de gestión inteligente presenta información clara sobre los datos de rendimiento de cada producto individual.</p>
+                        </div>
+                        <div class="lum-img-box">
+                            <img src="images/luminaria-6.jpg" alt="Diseño Adaptable y Conectividad" class="lum-static-img">
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="modal-divider">
+
+                <!-- Bloque 3: Farol Solar NxT -->
+                <div class="lum-section">
+                    <div class="modal-grid lum-block-grid">
+                        <div class="lum-img-box">
+                            <img src="images/luminaria-7.jpg" alt="Farol Solar NxT" class="lum-static-img">
+                        </div>
+                        <div class="lum-info-box center-vertically">
+                            <h3>Farol Solar NxT</h3>
+                            <p>Nuestra gama de luminarias solares NxT ofrece una paleta de colores de opciones de iluminación para terrenos privados y/o públicos. Esta lámpara de exterior alimentada con energía solar funciona completamente de forma inalámbrica.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="modal-divider">
+
+                <!-- Bloque 4: Punto WIFI 4G -->
+                <div class="lum-section">
+                    <div class="modal-grid lum-block-grid reverse-mobile">
+                        <div class="lum-info-box center-vertically">
+                            <h3>Punto WIFI 4G</h3>
+                            <p>Nuestra gama de luminarias con conexión y punto de acceso WiFi hace que la conexión inalámbrica a internet sea verdaderamente inalámbrica. El diseño y componentes permite una red de malla WiFi potente y funciona con tecnología solar avanzada; todo integrado en una elegante y única columna solar.</p>
+                        </div>
+                        <div class="lum-img-box">
+                            <img src="images/luminaria-8.jpg" alt="Punto WIFI 4G" class="lum-static-img">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+<!-- VENTANA MODAL 5: Granjas Solares & Minigranjas -->
+<div id="farms-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal-btn" onclick="closeFarmsModal()">&times;</span>
+        <div class="modal-grid">
+            <div class="modal-info">
+                <h2>Conectamos el país con <span class="highlight">energía limpia</span></h2>
+                <p>Trabajamos desde el diseño, planeación, construcción y puesta en marcha de Minigranjas solares e integramos tecnología para garantizar eficiencia y calidad.</p>
+                <p>Por medio de nuestro modelo, contribuimos a fortalecer la oferta energética del país con soluciones eficientes y adaptadas al territorio.</p>
+                
+                <!-- BOTÓN DE CONOCE MÁS ENLAZADO AL PDF -->
+                <a href="./pdf/granjas_solares.pdf" target="_blank" class="btn-modal-cta">
+                    <span>CONOCE MÁS</span>
+                </a>
+            </div>
+            
+            <!-- CARRUSEL CON ESPACIO PARA 3 IMÁGENES -->
+            <div class="modal-slider" id="farms-slider">
+                <img src="images/granja_solar_1.jpg" alt="Granja Solar 1" class="farms-slider-img active">
+                <img src="images/granja_solar_2.jpg" alt="Granja Solar 2" class="farms-slider-img">
+                <img src="images/granja_solar_3.jpg" alt="Granja Solar 3" class="farms-slider-img">
+                <div class="slider-dots">
+                    <span class="farms-dot active"></span>
+                    <span class="farms-dot"></span>
+                    <span class="farms-dot"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- VENTANA MODAL 6: ElectroMovilidad -->
+<div id="electromovilidad-modal" class="modal">
+    <div class="modal-content modal-xlarge">
+        <span class="close-modal-btn" onclick="closeElectromovilidadModal()">&times;</span>
+        
+        <div class="modal-scrollable">
+            <!-- SECCIÓN SUPERIOR: Info + Carrusel (3 imágenes) -->
+            <div class="modal-grid eco-top-grid">
+                <div class="modal-info">
+                    <h2>Soluciones Inteligentes para <span class="highlight">Carga Vehicular Eléctrica</span></h2>
+                    <p>En <strong>RedConex</strong> impulsamos la movilidad eléctrica en Colombia con soluciones inteligentes de recarga para vehículos eléctricos basadas en la tecnología de Circontrol, líder mundial en infraestructura de carga. Ofrecemos cargadores residenciales, comerciales y de carga rápida DC, así como proyectos completos de electrolineras, gestión energética y sistemas de medición y protección.</p>
+                    <p>Acompañamos a empresas, constructoras, entidades públicas y usuarios particulares en la implementación de puntos de carga seguros, eficientes y adaptados a la normativa colombiana, asegurando una transición confiable hacia la movilidad sostenible.</p>
+                    
+                    <!-- BOTÓN ENLAZADO AL PDF DE ELECTROMOVILIDAD -->
+                    <a href="./pdf/electromovilidad.pdf" target="_blank" class="btn-modal-cta">
+                        <span>CONOCE MÁS</span>
+                    </a>
+                </div>
+                
+                <!-- CARRUSEL SUPERIOR (IMÁGENES 1, 2 Y 3) -->
+                <div class="modal-slider" id="electro-slider">
+                    <img src="images/electromovilidad_1.jpg" alt="ElectroMovilidad 1" class="electro-slider-img active">
+                    <img src="images/electromovilidad_2.jpg" alt="ElectroMovilidad 2" class="electro-slider-img">
+                    <img src="images/electromovilidad_3.jpg" alt="ElectroMovilidad 3" class="electro-slider-img">
+                    <div class="slider-dots">
+                        <span class="electro-dot active"></span>
+                        <span class="electro-dot"></span>
+                        <span class="electro-dot"></span>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="modal-divider eco-divider">
+
+            <!-- SECCIÓN INFERIOR: 3 CARDS / BANNERS (Cargadores Domésticos, Semirrápidos y Rápidos) -->
+            <div class="electro-cards-container">
+                <!-- Tarjeta 1: Cargadores Domésticos -->
+                <div class="electro-banner-card">
+                    <div class="electro-banner-info">
+                        <h3>Cargadores Domésticos</h3>
+                        <p>Los cargadores domésticos de Circontrol ofrecen una solución segura y práctica para recargar tu vehículo eléctrico desde casa. Son equipos fiables, fáciles de usar y diseñados para brindar una experiencia cómoda y estable todos los días. En Colombia se adaptan perfectamente a viviendas unifamiliares y conjuntos residenciales, permitiendo una carga eficiente sin complicaciones. <strong>RedConex</strong> se encarga de la venta, instalación, mantenimiento y opciones de arriendo para que disfrutes la movilidad eléctrica con total tranquilidad.</p>
+                        <p class="electro-models"><strong>En esta línea:</strong> eHome 5</p>
+                    </div>
+                    <div class="electro-banner-img-wrapper">
+                        <img src="images/cargadores_domesticos.jpg" alt="Cargadores Domésticos Circontrol" class="electro-static-img">
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Cargadores Semirrápidos -->
+                <div class="electro-banner-card">
+                    <div class="electro-banner-info">
+                        <h3>Cargadores Semirrápidos</h3>
+                        <p>Las estaciones de carga semirrápida de Circontrol son la solución ideal para empresas, parqueaderos y espacios donde los vehículos eléctricos permanecen por más tiempo. Ofrecen una carga eficiente, segura y estable que protege la vida útil de las baterías. En Colombia, son perfectos para flotas, conjuntos residenciales y centros comerciales que buscan una recarga confiable y de bajo costo operativo.</p>
+                        <p class="electro-models"><strong>En esta línea:</strong> eNext Park, eVolve Smart, eVolve Master-Satellite</p>
+                    </div>
+                    <div class="electro-banner-img-wrapper">
+                        <img src="images/cargadores_semirrapidos.jpg" alt="Cargadores Semirrápidos Circontrol" class="electro-static-img">
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3: Cargadores Rápidos -->
+                <div class="electro-banner-card">
+                    <div class="electro-banner-info">
+                        <h3>Cargadores Rápidos</h3>
+                        <p>Las estaciones de carga rápida de Circontrol permiten recargar cualquier tipo de vehículo eléctrico en tiempos muy reducidos, ofreciendo flexibilidad y alto rendimiento. Son ideales para estaciones públicas, electrolineras empresariales o zonas donde los usuarios permanecen pocos minutos. En Colombia, impulsan la movilidad eléctrica en corredores viales, estaciones de servicio y centros logísticos.</p>
+                        <p class="electro-models"><strong>En esta línea:</strong> eVolve Rapid Master, Sonic Wall 22</p>
+                    </div>
+                    <div class="electro-banner-img-wrapper">
+                        <img src="images/cargadores_rapidos.jpg" alt="Cargadores Rápidos Circontrol" class="electro-static-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- VENTANA MODAL: Servicios de Ingeniería -->
+<div id="ingenieria-modal" class="modal">
+    <div class="modal-content modal-xlarge">
+        <span class="close-modal-btn" onclick="closeIngenieriaModal()">&times;</span>
+        
+        <div class="modal-scrollable">
+            <!-- SECCIÓN SUPERIOR: Título + Carrusel (3 Imágenes) -->
+            <div class="modal-grid eco-top-grid">
+                <div class="modal-info">
+                    <h2>Tecnología para la <span class="highlight">Eficiencia Energética</span></h2>
+                    <p>Referentes en la integración de tecnologías para el desarrollo de soluciones y productos que mejoran la eficiencia energética en industrias, edificaciones e infraestructura vial y eléctrica.</p>
+                    
+                    <!-- BOTÓN ENLAZADO AL PDF GENERAL -->
+                    <a href="./pdf/servicios_ingenieria.pdf" target="_blank" class="btn-modal-cta">
+                        <span>CONOCE MÁS</span>
+                    </a>
+                </div>
+                
+                <!-- CARRUSEL DE IMÁGENES SUPERIOR -->
+                <div class="modal-slider" id="ing-slider">
+                    <img src="images/ingenieria_1.jpg" alt="Servicios de Ingeniería 1" class="ing-slider-img active">
+                    <img src="images/ingenieria_2.jpg" alt="Servicios de Ingeniería 2" class="ing-slider-img">
+                    <img src="images/ingenieria_3.jpg" alt="Servicios de Ingeniería 3" class="ing-slider-img">
+                    <div class="slider-dots">
+                        <span class="ing-dot active"></span>
+                        <span class="ing-dot"></span>
+                        <span class="ing-dot"></span>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="modal-divider eco-divider">
+
+            <!-- SECCIÓN INFERIOR: 4 TARJETAS DE SERVICIOS ESPECIALIZADOS -->
+            <div class="ing-cards-grid">
+                <!-- Tarjeta 1: SIPRA -->
+                <div class="ing-card">
+                    <div class="ing-card-header">
+                        <h3>SIPRA</h3>
+                        <i class="fa-solid fa-bolt-lightning ing-icon"></i>
+                    </div>
+                    <p>Desarrollamos la mejor compatibilidad electromagnética y la mayor protección contra daño por descargas, teniendo en cuenta la ubicación de los equipos y la compleja resistividad del terreno.</p>
+                    <a href="./pdf/sipra.pdf" target="_blank" class="btn-card-red">
+                        Conoce más <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+
+                <!-- Tarjeta 2: SISTEMA PUESTA TIERRA -->
+                <div class="ing-card">
+                    <div class="ing-card-header">
+                        <h3>SISTEMA PUESTA TIERRA</h3>
+                        <i class="fa-solid fa-tower-cell ing-icon"></i>
+                    </div>
+                    <p>Los sistemas eléctricos serán protegidos con una puesta a tierra para seguridad de las personas, y así mismo facilitar la operación de los equipos.</p>
+                    <a href="./pdf/puesta_tierra.pdf" target="_blank" class="btn-card-red">
+                        Conoce más <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+
+                <!-- Tarjeta 3: MEDICIÓN DE CALIDAD DE ENERGÍA -->
+                <div class="ing-card">
+                    <div class="ing-card-header">
+                        <h3>MEDICIÓN DE CALIDAD DE ENERGÍA</h3>
+                        <i class="fa-solid fa-clipboard-check ing-icon"></i>
+                    </div>
+                    <p>Garantizamos la optimización de los procesos que tienen como insumo principal el uso de la energía eléctrica, generando la reducción del consumo de energía.</p>
+                    <a href="./pdf/calidad_energia.pdf" target="_blank" class="btn-card-red">
+                        Conoce más <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+
+                <!-- Tarjeta 4: MEDICIÓN TELUROMÉTRICA -->
+                <div class="ing-card">
+                    <div class="ing-card-header">
+                        <h3>MEDICIÓN TELUROMÉTRICA</h3>
+                        <i class="fa-solid fa-gauge-high ing-icon"></i>
+                    </div>
+                    <p>Sistema de medición de tierras que determina los parámetros óhmicos que se requieren para implementar sistemas de protección eléctricas.</p>
+                    <a href="./pdf/telurometrica.pdf" target="_blank" class="btn-card-red">
+                        Conoce más <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- VENTANA MODAL: Eficiencia Energética -->
+<div id="eficiencia-modal" class="modal">
+    <div class="modal-content modal-xlarge">
+        <span class="close-modal-btn" onclick="closeEficienciaModal()">&times;</span>
+        
+        <div class="modal-scrollable">
+            <!-- SECCIÓN SUPERIOR: Título + Carrusel (3 imágenes) -->
+            <div class="modal-grid eco-top-grid">
+                <div class="modal-info">
+                    <h2>Soluciones <span class="highlight">Energéticas</span></h2>
+                    <p>Servicios y soluciones de calidad de la energía, gestión de calidad en los procesos industriales y en los últimos años en tecnologías de carga vehicular, además de energía renovable, brindando la sinergia de componentes en el desarrollo de proyectos.</p>
+                    <p>Contamos con el respaldo de equipos de última tecnología en soluciones de calidad de energía y certificación de fábrica que han garantizado casos de éxito en el país.</p>
+                    
+                    <!-- BOTÓN ENLAZADO AL PDF DE EFICIENCIA ENERGÉTICA -->
+                    <a href="./pdf/eficiencia_energetica.pdf" target="_blank" class="btn-modal-cta">
+                        <span>CONOCE MÁS</span>
+                    </a>
+                </div>
+                
+                <!-- CARRUSEL SUPERIOR DE IMÁGENES -->
+                <div class="modal-slider" id="eficiencia-slider">
+                    <img src="images/eficiencia_1.jpg" alt="Soluciones Energéticas 1" class="eficiencia-slider-img active">
+                    <img src="images/eficiencia_2.jpg" alt="Soluciones Energéticas 2" class="eficiencia-slider-img">
+                    <img src="images/eficiencia_3.jpg" alt="Soluciones Energéticas 3" class="eficiencia-slider-img">
+                    <div class="slider-dots">
+                        <span class="eficiencia-dot active"></span>
+                        <span class="eficiencia-dot"></span>
+                        <span class="eficiencia-dot"></span>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="modal-divider eco-divider">
+
+            <!-- BLOQUE 1: COMPENSACIÓN EN PROCESOS INDUSTRIALES -->
+            <div class="eficiencia-block">
+                <h3 class="eficiencia-block-title">Compensación en Procesos Industriales</h3>
+                
+                <div class="eficiencia-cards-grid">
+                    <div class="eficiencia-card">
+                        <div class="eficiencia-card-img-wrapper">
+                            <img src="images/compensacion_reactiva.jpg" alt="Compensación de Reactiva" class="eficiencia-card-img">
+                            <div class="eficiencia-card-badge">Compensación de Reactiva</div>
+                        </div>
+                        <div class="eficiencia-card-body">
+                            <p>Soluciones energéticas para contrarrestar la constante demanda de cargas inductivas en la industria que incrementa los consumos de reactiva, generando penalizaciones por parte de los operadores de red.</p>
+                        </div>
+                    </div>
+
+                    <div class="eficiencia-card">
+                        <div class="eficiencia-card-img-wrapper">
+                            <img src="images/forma_onda.jpg" alt="Compensación de la Forma de Onda" class="eficiencia-card-img">
+                            <div class="eficiencia-card-badge">Compensación de la Forma de Onda</div>
+                        </div>
+                        <div class="eficiencia-card-body">
+                            <p>Garantizamos el desempeño normal de procesos energéticos, eliminando los problemas de la calidad de la energía, paradas de procesos inexplicables, sobrecalentamiento o consumos por distorsión armónica elevada.</p>
+                        </div>
+                    </div>
+
+                    <div class="eficiencia-card">
+                        <div class="eficiencia-card-img-wrapper">
+                            <img src="images/efectos_transitorios.jpg" alt="Compensación de Efectos Transitorios" class="eficiencia-card-img">
+                            <div class="eficiencia-card-badge">Compensación de Efectos Transitorios</div>
+                        </div>
+                        <div class="eficiencia-card-body">
+                            <p>Soluciones de ingeniería especializada frente a los problemas transitorios de los sistemas energéticos durante los procesos de producción a nivel nacional.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lista de Productos Bloque 1 -->
+                <div class="eficiencia-products-section">
+                    <h4 class="products-title">Productos:</h4>
+                    <div class="products-columns">
+                        <ul>
+                            <li><i class="fa-solid fa-angle-right"></i> UPS híbridas</li>
+                            <li><i class="fa-solid fa-angle-right"></i> Transformadores de aislamiento y filtros activos</li>
+                            <li><i class="fa-solid fa-angle-right"></i> Filtro capacitivo</li>
+                            <li><i class="fa-solid fa-angle-right"></i> Reactancias de filtrado</li>
+                        </ul>
+                        <ul>
+                            <li><i class="fa-solid fa-angle-right"></i> Condensadores</li>
+                            <li><i class="fa-solid fa-angle-right"></i> Controladores de potencia reactiva</li>
+                            <li><i class="fa-solid fa-angle-right"></i> Bancos estáticos y dinámicos prefabricados</li>
+                            <li><i class="fa-solid fa-angle-right"></i> Reactancias de filtrado</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="modal-divider">
+
+            <!-- BLOQUE 2: MEDICIÓN Y ANÁLISIS -->
+            <div class="eficiencia-block">
+                <h3 class="eficiencia-block-title">Medición y Análisis</h3>
+                
+                <div class="eficiencia-cards-grid">
+                    <div class="eficiencia-card">
+                        <div class="eficiencia-card-img-wrapper">
+                            <img src="images/parametros_electricos.jpg" alt="Parámetros eléctricos" class="eficiencia-card-img">
+                            <div class="eficiencia-card-badge">Parámetros eléctricos</div>
+                        </div>
+                        <div class="eficiencia-card-body">
+                            <p>Medición de la energía demandada por cada subproceso dentro del sistema eléctrico identificando las líneas de mayor consumo, cálculo de productividad, entre otros.</p>
+                        </div>
+                    </div>
+
+                    <div class="eficiencia-card">
+                        <div class="eficiencia-card-img-wrapper">
+                            <img src="images/tension_niveles.jpg" alt="Baja, media y alta tensión" class="eficiencia-card-img">
+                            <div class="eficiencia-card-badge">Baja, media y alta tensión</div>
+                        </div>
+                        <div class="eficiencia-card-body">
+                            <p>Disponemos de equipos certificados para la instrumentación en todos los niveles de tensión, generando la vigilancia del sistema energético requerido.</p>
+                        </div>
+                    </div>
+
+                    <div class="eficiencia-card">
+                        <div class="eficiencia-card-img-wrapper">
+                            <img src="images/estudios_calidad.jpg" alt="Estudios de Calidad Energética" class="eficiencia-card-img">
+                            <div class="eficiencia-card-badge">Estudios de Calidad Energética</div>
+                        </div>
+                        <div class="eficiencia-card-body">
+                            <p>Optimizamos los procesos de la calidad de la energía previniendo problemas como paradas de procesos, pérdidas de materias primas o energéticas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lista de Productos Bloque 2 -->
+                <div class="eficiencia-products-section">
+                    <h4 class="products-title">Productos:</h4>
+                    <div class="products-columns">
+                        <ul>
+                            <li><i class="fa-solid fa-angle-right"></i> Transformadores de corriente y tensión</li>
+                            <li><i class="fa-solid fa-angle-right"></i> Medidores de consumos parciales</li>
+                            <li><i class="fa-solid fa-angle-right"></i> Sistemas SCADA con Host Local o en servidor Web</li>
+                        </ul>
+                        <ul>
+                            <li><i class="fa-solid fa-angle-right"></i> Analizadores de calidad de la potencia para subestaciones e instrumentación digital y análoga</li>
+                            <li><i class="fa-solid fa-angle-right"></i> Analizadores de Red</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="modal-divider">
+
+            <!-- BLOQUE 3: CONTROL -->
+            <div class="eficiencia-block">
+                <h3 class="eficiencia-block-title">Control</h3>
+                
+                <div class="eficiencia-cards-grid single-card-grid">
+                    <div class="eficiencia-card">
+                        <div class="eficiencia-card-img-wrapper">
+                            <img src="images/instrumentos_control.jpg" alt="Instrumentos de Control" class="eficiencia-card-img">
+                            <div class="eficiencia-card-badge">Instrumentos de Control</div>
+                        </div>
+                        <div class="eficiencia-card-body">
+                            <p>Análisis del consumo actual, control de demanda y la integración de estas tecnologías en sistemas SCADA que permiten el funcionamiento dinámico de su industria.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- VENTANA MODAL: Domótica e Inmótica -->
+<div id="domotica-modal" class="modal">
+    <div class="modal-content modal-xlarge">
+        <span class="close-modal-btn" onclick="closeDomoticaModal()">&times;</span>
+        
+        <div class="modal-scrollable">
+            <!-- SECCIÓN SUPERIOR: Título + Carrusel (3 imágenes) -->
+            <div class="modal-grid eco-top-grid">
+                <div class="modal-info">
+                    <h2>Automatización <span class="highlight">domótica e inmótica</span></h2>
+                    <p>Implementamos sistemas de automatización domótica e inmótica para crear espacios inteligentes, eficientes y cómodos para los usuarios finales.</p>
+                    
+                    <!-- BOTÓN ENLAZADO AL PDF DE DOMÓTICA E INMÓTICA -->
+                    <a href="./pdf/domotica_inmotica.pdf" target="_blank" class="btn-modal-cta">
+                        <span>CONOCE MÁS</span>
+                    </a>
+                </div>
+                
+                <!-- CARRUSEL SUPERIOR DE IMÁGENES -->
+                <div class="modal-slider" id="domotica-slider">
+                    <img src="images/domotica_1.jpg" alt="Domótica e Inmótica 1" class="domotica-slider-img active">
+                    <img src="images/domotica_2.jpg" alt="Domótica e Inmótica 2" class="domotica-slider-img">
+                    <img src="images/domotica_3.jpg" alt="Domótica e Inmótica 3" class="domotica-slider-img">
+                    <div class="slider-dots">
+                        <span class="domotica-dot active"></span>
+                        <span class="domotica-dot"></span>
+                        <span class="domotica-dot"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN INTRODUCTORIA -->
+            <div class="domotica-intro-section">
+                <h3>Sistemas inteligentes <span>integrados al proyecto</span></h3>
+                <p>La <strong>automatización, domótica e inmótica</strong> transforman la forma en que las personas interactúan con los espacios que habitan y utilizan a diario. Implementamos sistemas inteligentes de vanguardia que permiten crear entornos más eficientes, confortables y funcionales, integrando tecnología de forma estratégica dentro del proyecto constructivo.</p>
+            </div>
+
+            <hr class="modal-divider">
+
+            <!-- BLOQUE 1: DOMÓTICA PARA MAYOR CONFORT Y EFICIENCIA (IMAGEN 2) -->
+            <div class="domotica-feature-grid">
+                <div class="domotica-feature-left">
+                    <h3>Domótica <span>para mayor confort y eficiencia</span></h3>
+                    <p>La automatización va mucho más allá del control de dispositivos. Desarrollamos soluciones que integran iluminación, climatización, control de accesos, monitoreo, seguridad y gestión energética en un solo sistema inteligente.</p>
+                </div>
+                
+                <div class="domotica-green-box">
+                    <p class="green-box-intro">Nuestro enfoque parte de entender las necesidades del usuario final y los objetivos del proyecto, para diseñar soluciones tecnológicas que aporten valor real y mejoren la experiencia de uso de cada espacio.</p>
+                    <ul class="green-box-list">
+                        <li><i class="fa-solid fa-check"></i> Optimización del consumo de energía.</li>
+                        <li><i class="fa-solid fa-check"></i> Control centralizado de sistemas (iluminación, climatización, seguridad, etc.).</li>
+                        <li><i class="fa-solid fa-check"></i> Experiencias de habitabilidad evolucionadas.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="modal-divider">
+
+            <!-- BLOQUE 2: BANNER COMBINADO IMAGEN + FONDO VERDE (IMAGEN 3) -->
+            <div class="domotica-banner-split">
+                <div class="domotica-banner-img-wrapper">
+                    <img src="images/domotica_edificio.jpg" alt="Edificio Inteligente Domótica" class="domotica-banner-img">
+                </div>
+                <div class="domotica-green-banner">
+                    <h3>Automatización, domótica e inmótica: <span>espacios inteligentes para el presente y el futuro</span></h3>
+                    <p>La automatización es una herramienta fundamental para construir espacios sostenibles y preparados para el futuro. Integramos tecnologías que contribuyen a la eficiencia energética, el uso responsable de los recursos y la durabilidad de las soluciones implementadas.</p>
+                    <p>Cada sistema se diseña bajo criterios técnicos rigurosos, garantizando su confiabilidad, escalabilidad y correcta integración con las demás especialidades del proyecto.</p>
+                    <p>La automatización, la domótica y la inmótica no son un complemento, sino una parte esencial de la construcción inteligente.</p>
+                </div>
+            </div>
+
+            <hr class="modal-divider">
+
+            <!-- BLOQUE 3: TECNOLOGÍA Y EFICIENCIA ENERGÉTICA (IMAGEN 4) -->
+            <div class="domotica-tech-grid">
+                <div class="domotica-tech-title">
+                    <h3>Tecnología, eficiencia energética <span>y visión de largo plazo</span></h3>
+                </div>
+                <div class="domotica-tech-content">
+                    <p>En proyectos comerciales, institucionales y corporativos, la tecnología juega un papel clave en la eficiencia operativa. Implementamos sistemas que permiten monitorear y gestionar de forma inteligente los recursos del edificio, optimizando el consumo energético, reduciendo costos y mejorando la operación general de la infraestructura.</p>
+                    <p>Estas soluciones están pensadas para proyectos de mayor escala, donde la tecnología se convierte en un aliado estratégico de la gestión del edificio.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- VENTANA MODAL: Seguridad Electrónica -->
+<div id="seguridad-modal" class="modal">
+    <div class="modal-content modal-xlarge">
+        <span class="close-modal-btn" onclick="closeSeguridadModal()">&times;</span>
+        
+        <div class="modal-scrollable">
+            <!-- SECCIÓN SUPERIOR: Título + Carrusel (3 imágenes) -->
+            <div class="modal-grid eco-top-grid">
+                <div class="modal-info">
+                    <h2>Seguridad <span class="highlight">Electrónica</span></h2>
+                    <p><strong>Protección inteligente para personas, instalaciones y activos.</strong></p>
+                    <p>Diseñamos e implementamos soluciones integrales de videovigilancia, control de acceso, biometría, detección de intrusiones, monitoreo remoto y tecnologías inteligentes para fortalecer la seguridad de empresas e instalaciones.</p>
+                    <p><strong>Tecnología que protege, monitorea y anticipa:</strong> La seguridad moderna ya no depende únicamente de cámaras o sistemas de alarma. Hoy es posible integrar videovigilancia, sensores, control de acceso, inteligencia artificial, redes de comunicación y monitoreo en tiempo real para construir ecosistemas de seguridad capaces de detectar eventos, generar alertas y facilitar una respuesta oportuna.</p>
+                    <p>En <strong>RedConex</strong> integramos estas tecnologías de acuerdo con las necesidades de cada proyecto, buscando que la seguridad sea escalable, eficiente y conectada.</p>
+                    
+                    <!-- BOTÓN ENLAZADO AL PDF DE SEGURIDAD ELECTRÓNICA -->
+                    <a href="./pdf/seguridad_electronica.pdf" target="_blank" class="btn-modal-cta">
+                        <span>CONOCE MÁS</span>
+                    </a>
+                </div>
+                
+                <!-- CARRUSEL SUPERIOR DE IMÁGENES -->
+                <div class="modal-slider" id="seguridad-slider">
+                    <img src="images/seguridad_1.jpg" alt="Seguridad Electrónica 1" class="seguridad-slider-img active">
+                    <img src="images/seguridad_2.jpg" alt="Seguridad Electrónica 2" class="seguridad-slider-img">
+                    <img src="images/seguridad_3.jpg" alt="Seguridad Electrónica 3" class="seguridad-slider-img">
+                    <div class="slider-dots">
+                        <span class="seguridad-dot active"></span>
+                        <span class="seguridad-dot"></span>
+                        <span class="seguridad-dot"></span>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="modal-divider eco-divider">
+
+            <!-- SECCIÓN INFERIOR: NUESTRAS SOLUCIONES -->
+            <div class="seguridad-solutions-section">
+                <h3 class="solutions-title">🛡️ Nuestras Soluciones</h3>
+
+                <div class="seguridad-cards-grid">
+                    <!-- Tarjeta 1: Videovigilancia CCTV -->
+                    <div class="seguridad-card">
+                        <div class="seguridad-card-img-wrapper">
+                            <img src="images/cctv.jpg" alt="Videovigilancia CCTV" class="seguridad-card-img">
+                        </div>
+                        <div class="seguridad-card-body">
+                            <h3>Videovigilancia CCTV</h3>
+                            <p>Sistemas de cámaras para supervisar instalaciones en tiempo real y registrar eventos.</p>
+                            <h4>Podemos integrar:</h4>
+                            <ul>
+                                <li><i class="fa-solid fa-shield-halved"></i> Cámaras IP</li>
+                                <li><i class="fa-solid fa-shield-halved"></i> Cámaras PTZ</li>
+                                <li><i class="fa-solid fa-shield-halved"></i> Visión nocturna</li>
+                                <li><i class="fa-solid fa-shield-halved"></i> Grabación digital</li>
+                                <li><i class="fa-solid fa-shield-halved"></i> Monitoreo remoto</li>
+                                <li><i class="fa-solid fa-shield-halved"></i> Analítica de video</li>
+                                <li><i class="fa-solid fa-shield-halved"></i> Detección de movimiento</li>
+                                <li><i class="fa-solid fa-shield-halved"></i> Integración con sistemas de alarma</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 2: Control de acceso -->
+                    <div class="seguridad-card">
+                        <div class="seguridad-card-img-wrapper">
+                            <img src="images/control_acceso.jpg" alt="Control de Acceso" class="seguridad-card-img">
+                        </div>
+                        <div class="seguridad-card-body">
+                            <h3>Control de Acceso</h3>
+                            <p>Controlamos quién puede ingresar, cuándo puede hacerlo y a qué zonas tiene autorización.</p>
+                            <h4>Soluciones mediante:</h4>
+                            <ul>
+                                <li><i class="fa-solid fa-id-card"></i> Tarjetas y credenciales</li>
+                                <li><i class="fa-solid fa-key"></i> Códigos de acceso</li>
+                                <li><i class="fa-solid fa-fingerprint"></i> Lectores biométricos</li>
+                                <li><i class="fa-solid fa-fingerprint"></i> Huella dactilar</li>
+                                <li><i class="fa-solid fa-user-check"></i> Reconocimiento facial</li>
+                                <li><i class="fa-solid fa-users"></i> Control de visitantes</li>
+                                <li><i class="fa-solid fa-door-closed"></i> Barreras y puertas automatizadas</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 3: Detección de intrusión -->
+                    <div class="seguridad-card">
+                        <div class="seguridad-card-img-wrapper">
+                            <img src="images/intrusion.jpg" alt="Detección de Intrusión" class="seguridad-card-img">
+                        </div>
+                        <div class="seguridad-card-body">
+                            <h3>Detección de Intrusión</h3>
+                            <p>Sistemas diseñados para detectar accesos o movimientos no autorizados y generar alertas.</p>
+                            <h4>Podemos integrar:</h4>
+                            <ul>
+                                <li><i class="fa-solid fa-radar"></i> Sensores de movimiento</li>
+                                <li><i class="fa-solid fa-magnet"></i> Sensores magnéticos</li>
+                                <li><i class="fa-solid fa-bars"></i> Barreras perimetrales</li>
+                                <li><i class="fa-solid fa-bell"></i> Alarmas sonoras</li>
+                                <li><i class="fa-solid fa-triangle-exclamation"></i> Detectores perimetrales</li>
+                                <li><i class="fa-solid fa-mobile-screen-button"></i> Notificaciones remotas</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 4: Detección y prevención de incendios -->
+                    <div class="seguridad-card">
+                        <div class="seguridad-card-img-wrapper">
+                            <img src="images/incendios.jpg" alt="Prevención de Incendios" class="seguridad-card-img">
+                        </div>
+                        <div class="seguridad-card-body">
+                            <h3>Detección y Prevención de Incendios</h3>
+                            <p>Sistemas orientados a detectar oportunamente condiciones que puedan representar un riesgo de incendio.</p>
+                            <h4>Incluye soluciones como:</h4>
+                            <ul>
+                                <li><i class="fa-solid fa-smog"></i> Detectores de humo</li>
+                                <li><i class="fa-solid fa-temperature-high"></i> Detectores de temperatura</li>
+                                <li><i class="fa-solid fa-fire-extinguisher"></i> Alarmas contraincendios</li>
+                                <li><i class="fa-solid fa-sliders"></i> Paneles de control</li>
+                                <li><i class="fa-solid fa-bullhorn"></i> Sistemas de notificación</li>
+                                <li><i class="fa-solid fa-network-wired"></i> Integración con seguridad general</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 5: Monitoreo Remoto (Banner Ancho Completo) -->
+                <div class="seguridad-banner-card">
+                    <div class="seguridad-banner-info">
+                        <h3>Monitoreo Remoto</h3>
+                        <p>La seguridad no tiene que detenerse cuando termina la jornada laboral.</p>
+                        <p>Con sistemas conectados a la red es posible supervisar instalaciones remotamente, recibir alertas en tiempo real y consultar eventos registrados desde dispositivos autorizados en cualquier momento y lugar.</p>
+                    </div>
+                    <div class="seguridad-banner-img-wrapper">
+                        <img src="images/monitoreo_remoto.jpg" alt="Monitoreo Remoto" class="seguridad-banner-img">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- VENTANA MODAL: Consultoría y Proyectos TIC -->
+<div id="consultoria-modal" class="modal">
+    <div class="modal-content modal-xlarge">
+        <span class="close-modal-btn" onclick="closeConsultoriaModal()">&times;</span>
+        
+        <div class="modal-scrollable">
+            <!-- SECCIÓN SUPERIOR: Título + Carrusel (3 imágenes) -->
+            <div class="modal-grid eco-top-grid">
+                <div class="modal-info">
+                    <h2>Consultoría y <span class="highlight">Proyectos TIC</span></h2>
+                    <p>Diseñamos e implementamos soluciones de Tecnologías de la Información y las Comunicaciones adaptadas a las necesidades de cada organización, integrando conectividad, infraestructura, sistemas y seguridad.</p>
+                    <p><strong>Tecnología alineada con los objetivos de su organización:</strong> La transformación digital requiere mucho más que incorporar nuevas tecnologías. Es necesario entender las necesidades del negocio, diseñar una arquitectura adecuada e integrar soluciones que sean seguras, eficientes y escalables.</p>
+                    <p>En <strong>RedConex</strong> acompañamos a las organizaciones en la planeación, diseño, implementación e integración de proyectos TIC, combinando infraestructura de comunicaciones, redes, conectividad, sistemas tecnológicos y seguridad. Nuestro objetivo es convertir la tecnología en una herramienta para mejorar la operación, la conectividad y la productividad de nuestros clientes.</p>
+                    
+                    <!-- BOTÓN ENLAZADO AL PDF DE CONSULTORÍA TIC -->
+                    <a href="./pdf/consultoria_proyectos_tic.pdf" target="_blank" class="btn-modal-cta">
+                        <span>CONOCE MÁS</span>
+                    </a>
+                </div>
+                
+                <!-- CARRUSEL SUPERIOR DE IMÁGENES -->
+                <div class="modal-slider" id="consultoria-slider">
+                    <img src="images/consultoria_1.jpg" alt="Consultoría TIC 1" class="consultoria-slider-img active">
+                    <img src="images/consultoria_2.jpg" alt="Consultoría TIC 2" class="consultoria-slider-img">
+                    <img src="images/consultoria_3.jpg" alt="Consultoría TIC 3" class="consultoria-slider-img">
+                    <div class="slider-dots">
+                        <span class="consultoria-dot active"></span>
+                        <span class="consultoria-dot"></span>
+                        <span class="consultoria-dot"></span>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="modal-divider eco-divider">
+
+            <!-- SECCIÓN INTERMEDIA: NUESTRAS ÁREAS DE TRABAJO -->
+            <div class="consultoria-section">
+                <h3 class="consultoria-section-title">🌐 Nuestras Áreas de Trabajo</h3>
+
+                <div class="consultoria-cards-grid">
+                    <!-- Área 1 -->
+                    <div class="consultoria-card">
+                        <div class="consultoria-card-header">
+                            <i class="fa-solid fa-network-wired consultoria-icon"></i>
+                            <h3>Infraestructura y Redes</h3>
+                        </div>
+                        <p>Diseño e implementación de redes LAN/WAN, cableado estructurado, fibra óptica, enlaces inalámbricos e interconexión de sedes.</p>
+                    </div>
+
+                    <!-- Área 2 -->
+                    <div class="consultoria-card">
+                        <div class="consultoria-card-header">
+                            <i class="fa-solid fa-cloud consultoria-icon"></i>
+                            <h3>Servicios y Conectividad</h3>
+                        </div>
+                        <p>Soluciones de conectividad, integración de servicios, acceso remoto, infraestructura y tecnologías orientadas a entornos empresariales.</p>
+                    </div>
+
+                    <!-- Área 3 -->
+                    <div class="consultoria-card">
+                        <div class="consultoria-card-header">
+                            <i class="fa-solid fa-shield-halved consultoria-icon"></i>
+                            <h3>Seguridad Tecnológica</h3>
+                        </div>
+                        <p>Firewall, segmentación de redes, VPN, IDS/IPS y mecanismos de protección para infraestructuras conectadas.</p>
+                    </div>
+
+                    <!-- Área 4 -->
+                    <div class="consultoria-card">
+                        <div class="consultoria-card-header">
+                            <i class="fa-solid fa-microchip consultoria-icon"></i>
+                            <h3>Integración Tecnológica</h3>
+                        </div>
+                        <p>Integración de sistemas, dispositivos, IoT, videovigilancia, control de acceso y otras tecnologías dentro de una infraestructura común.</p>
+                    </div>
+
+                    <!-- Área 5 -->
+                    <div class="consultoria-card">
+                        <div class="consultoria-card-header">
+                            <i class="fa-solid fa-laptop-code consultoria-icon"></i>
+                            <h3>Consultoría TIC</h3>
+                        </div>
+                        <p>Diagnóstico, análisis de requerimientos, diseño de arquitectura tecnológica, evaluación de infraestructura y formulación de proyectos.</p>
+                    </div>
+
+                    <!-- Área 6 -->
+                    <div class="consultoria-card">
+                        <div class="consultoria-card-header">
+                            <i class="fa-solid fa-chart-line consultoria-icon"></i>
+                            <h3>Optimización y Evolución</h3>
+                        </div>
+                        <p>Mejoramos infraestructuras existentes y diseñamos soluciones preparadas para el crecimiento y la incorporación de nuevas tecnologías.</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="modal-divider">
+
+            <!-- SECCIÓN INFERIOR: NUESTRO ENFOQUE (PIPELINE DE 5 PASOS) -->
+            <div class="consultoria-enfoque-container">
+                <h3 class="consultoria-section-title"> Nuestro Enfoque</h3>
+                
+                <div class="enfoque-steps-pipeline">
+                    <div class="enfoque-step">
+                        <span class="step-number">01</span>
+                        <span class="step-text">Diagnosticar</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right step-arrow"></i>
+                    
+                    <div class="enfoque-step">
+                        <span class="step-number">02</span>
+                        <span class="step-text">Diseñar</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right step-arrow"></i>
+
+                    <div class="enfoque-step">
+                        <span class="step-number">03</span>
+                        <span class="step-text">Implementar</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right step-arrow"></i>
+
+                    <div class="enfoque-step">
+                        <span class="step-number">04</span>
+                        <span class="step-text">Integrar</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right step-arrow"></i>
+
+                    <div class="enfoque-step">
+                        <span class="step-number">05</span>
+                        <span class="step-text">Optimizar</span>
+                    </div>
+                </div>
+
+                <p class="enfoque-description">Cada proyecto parte de las necesidades reales de la organización. Evaluamos su infraestructura actual, definimos los requerimientos técnicos y desarrollamos una solución que pueda evolucionar junto con el negocio.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- ==========================================
+     VENTANA MODAL CORPORATIVA: NOSOTROS
+     ========================================== -->
+<div id="nosotros-modal" class="modal">
+    <div class="modal-content modal-executive">
+        <span class="close-modal-btn" onclick="closeNosotrosModal()">&times;</span>
+        
+        <div class="modal-scrollable">
+            <!-- 1. HERO CORPORATIVO -->
+            <div class="nosotros-hero">
+                <span class="nosotros-badge">CONOCE REDCONEX</span>
+                <h1>Ingeniería, energía y tecnología para soluciones que generan valor</h1>
+                <p class="hero-subtext">Somos una empresa de ingeniería y tecnología especializada en el diseño, desarrollo e implementación de soluciones integrales para los sectores energético, eléctrico, tecnológico y de infraestructura.</p>
+            </div>
+
+            <hr class="modal-divider">
+
+            <!-- 2. QUIÉNES SOMOS -->
+            <div class="nosotros-section">
+                <h2 class="nosotros-title">Quiénes Somos</h2>
+                <div class="nosotros-text-block">
+                    <p>Somos una empresa de ingeniería y tecnología especializada en el diseño, desarrollo e implementación de soluciones integrales para los sectores energético, eléctrico, tecnológico y de infraestructura.</p>
+                    <p>Integramos experiencia en energía solar y renovable, ingeniería eléctrica, electromovilidad, eficiencia energética, telecomunicaciones, seguridad electrónica, domótica e inmótica y soluciones TIC, adaptando cada proyecto a las necesidades específicas de nuestros clientes.</p>
+                    <p>Nuestro enfoque combina ingeniería, tecnología y acompañamiento técnico para desarrollar soluciones eficientes, seguras y confiables, desde la etapa de diagnóstico, diseño y planificación hasta la implementación, puesta en operación y mantenimiento de los sistemas.</p>
+                </div>
+
+                <!-- CARDS COMPACTAS (VER EN 5 SEGUNDOS) -->
+                <div class="compact-services-grid">
+                    <div class="compact-card">
+                        <i class="fa-solid fa-sun compact-icon"></i>
+                        <span>ENERGÍA SOLAR</span>
+                    </div>
+                    <div class="compact-card">
+                        <i class="fa-solid fa-bolt compact-icon"></i>
+                        <span>INGENIERÍA ELÉCTRICA</span>
+                    </div>
+                    <div class="compact-card">
+                        <i class="fa-solid fa-charging-station compact-icon"></i>
+                        <span>MOVILIDAD ELÉCTRICA</span>
+                    </div>
+                    <div class="compact-card">
+                        <i class="fa-solid fa-chart-pie compact-icon"></i>
+                        <span>EFICIENCIA ENERGÉTICA</span>
+                    </div>
+                    <div class="compact-card">
+                        <i class="fa-solid fa-house-signal compact-icon"></i>
+                        <span>DOMÓTICA E INMÓTICA</span>
+                    </div>
+                    <div class="compact-card">
+                        <i class="fa-solid fa-shield-halved compact-icon"></i>
+                        <span>SEGURIDAD ELECTRÓNICA</span>
+                    </div>
+                    <div class="compact-card full-width-compact">
+                        <i class="fa-solid fa-network-wired compact-icon"></i>
+                        <span>TIC Y TELECOM</span>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="modal-divider">
+
+            <!-- 3. INGENIERÍA CON ENFOQUE TÉCNICO Y NORMATIVO -->
+            <div class="nosotros-section text-center">
+                <h2 class="nosotros-title">Ingeniería con enfoque técnico y normativo</h2>
+                <p class="section-subtext">Desarrollamos soluciones de ingeniería eléctrica orientadas a la seguridad, eficiencia y confiabilidad de las instalaciones, considerando los requisitos técnicos y normativos aplicables a cada proyecto.</p>
+
+                <div class="normativa-grid">
+                    <div class="normativa-card">
+                        <h3>RETIE</h3>
+                        <div class="normativa-check"><i class="fa-solid fa-check"></i></div>
+                        <h4>Seguridad</h4>
+                        <p>Seguridad y requisitos técnicos aplicables a las instalaciones eléctricas.</p>
+                    </div>
+
+                    <div class="normativa-card">
+                        <h3>RETILAP</h3>
+                        <div class="normativa-check"><i class="fa-solid fa-check"></i></div>
+                        <h4>Iluminación</h4>
+                        <p>Criterios técnicos aplicables al diseño y evaluación de sistemas de iluminación.</p>
+                    </div>
+
+                    <div class="normativa-card">
+                        <h3>NTC 2050</h3>
+                        <div class="normativa-check"><i class="fa-solid fa-check"></i></div>
+                        <h4>Instalaciones</h4>
+                        <p>Criterios técnicos aplicables al diseño de instalaciones eléctricas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="modal-divider">
+
+            <!-- 4. CASOS DE ÉXITO -->
+            <div class="nosotros-section">
+                <h2 class="nosotros-title text-center">CASOS DE ÉXITO</h2>
+                <p class="section-subtext text-center">Proyectos que hablan por nosotros. Una muestra de las soluciones de ingeniería, energía y tecnología desarrolladas por RedConex.</p>
+
+                <div class="casos-grid">
+                    <!-- Proyecto 1 -->
+                    <div class="caso-card">
+                        <div class="caso-img-wrapper">
+                            <img src="images/caso_solar_thumb.jpg" alt="Sistema Solar On-Grid" class="caso-img">
+                        </div>
+                        <div class="caso-body">
+                            <span class="caso-category">ENERGÍA SOLAR</span>
+                            <h3>Sistema Solar On-Grid · 6 kW</h3>
+                            <p class="caso-details">Sistema On-Grid | 6 kW | Vivienda | 2025</p>
+                            <button class="btn-ver-proyecto" onclick="openCaseStudy(1)">[VER PROYECTO]</button>
+                        </div>
+                    </div>
+
+                    <!-- Proyecto 2 -->
+                    <div class="caso-card">
+                        <div class="caso-img-wrapper">
+                            <img src="images/caso_unad_thumb.jpg" alt="Infraestructura Electromovilidad" class="caso-img">
+                        </div>
+                        <div class="caso-body">
+                            <span class="caso-category">ELECTROMOVILIDAD</span>
+                            <h3>Infraestructura de Electromovilidad</h3>
+                            <p class="caso-details">2 cargadores eléctricos | UNAD Cúcuta | Mayo 2025</p>
+                            <button class="btn-ver-proyecto" onclick="openCaseStudy(2)">[VER PROYECTO]</button>
+                        </div>
+                    </div>
+
+                    <!-- Proyecto 3 -->
+                    <div class="caso-card">
+                        <div class="caso-img-wrapper">
+                            <img src="images/caso_cctv_thumb.jpg" alt="Sistema Videovigilancia" class="caso-img">
+                        </div>
+                        <div class="caso-body">
+                            <span class="caso-category">SEGURIDAD ELECTRÓNICA</span>
+                            <h3>Sistema de Videovigilancia · Trituradora La Rica</h3>
+                            <p class="caso-details">32 + 2 cámaras | Fibra óptica | Full HD | 2014–2016</p>
+                            <button class="btn-ver-proyecto" onclick="openCaseStudy(3)">[VER PROYECTO]</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="modal-divider">
+
+            <!-- 5. CLIENTES Y ALIADOS -->
+            <div class="nosotros-section text-center">
+                <h2 class="nosotros-title">Clientes y aliados estratégicos</h2>
+                <p class="section-subtext">La confianza se construye proyecto a proyecto.</p>
+
+                <div class="logos-grid">
+                    <div class="logo-box"><img src="images/logo_cliente1.jpg" alt="Cliente RedConex"></div>
+                    <div class="logo-box"><img src="images/logo_cliente2.jpg" alt="Cliente RedConex"></div>
+                    <div class="logo-box"><img src="images/logo_cliente3.jpg" alt="Cliente RedConex"></div>
+                    <div class="logo-box"><img src="images/logo_cliente4.jpg" alt="Cliente RedConex"></div>
+                    <div class="logo-box"><img src="images/logo_cliente5.jpg" alt="Cliente RedConex"></div>
+                    <div class="logo-box"><img src="images/logo_cliente6.jpg" alt="Cliente RedConex"></div>
+                    <div class="logo-box"><img src="images/logo_cliente7.jpg" alt="Cliente RedConex"></div>
+                    <div class="logo-box"><img src="images/logo_cliente8.jpg" alt="Cliente RedConex"></div>
+                </div>
+            </div>
+
+            <hr class="modal-divider">
+
+            <!-- 6. REDCONEX EN ACCIÓN (VIDEO) -->
+            <div class="nosotros-section text-center">
+                <h2 class="nosotros-title">REDCONEX EN ACCIÓN</h2>
+                <p class="section-subtext">Conoce nuestra experiencia y capacidad técnica.</p>
+
+                <div class="video-preview-wrapper" onclick="openVideoFullscreen()">
+                    <video class="video-thumbnail" muted preload="metadata">
+                        <source src="videos/RedConex_Video_Corporativo_Premium.mp4#t=0.5" type="video/mp4">
+                        
+                        </video>
+                        <div class="video-overlay">
+                            <button class="btn-play-fullscreen" aria-label="Ver video en pantalla completa">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                            <span class="play-text">VER VIDEO EN PANTALLA COMPLETA</span>
+                            
+                        </div>
+                </div>
+            </div>
+
+            <hr class="modal-divider">
+
+            <!-- 7. ¿POR QUÉ REDCONEX? -->
+            <div class="nosotros-section">
+                <h2 class="nosotros-title text-center">¿Por qué RedConex?</h2>
+
+                <div class="why-grid">
+                    <div class="why-card">
+                        <h3>SOLUCIONES INTEGRALES</h3>
+                        <p>Integramos diferentes disciplinas de ingeniería y tecnología en una misma solución.</p>
+                    </div>
+                    <div class="why-card">
+                        <h3>ENFOQUE TÉCNICO</h3>
+                        <p>Analizamos cada proyecto desde sus necesidades técnicas y operativas.</p>
+                    </div>
+                    <div class="why-card">
+                        <h3>SEGURIDAD Y CONFIABILIDAD</h3>
+                        <p>Priorizamos soluciones diseñadas para operar de forma segura y confiable.</p>
+                    </div>
+                    <div class="why-card">
+                        <h3>ACOMPAÑAMIENTO</h3>
+                        <p>Acompañamos los proyectos desde la planificación hasta la implementación y puesta en operación.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. BANNER CTA WHATSAPP -->
+            <div class="cta-banner-original">
+                <h3 class="cta-title">¿TIENES UN PROYECTO?</h3>
+                <p class="cta-subtitle">Conversemos sobre tus necesidades y encontremos la solución adecuada.</p>
+                <a href="https://wa.me/573219195636?text=Hola%20RedConex,%20deseo%20solicitar%20asesor%C3%ADa%20sobre%20un%20proyecto."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-solicitar-original">
+                    <i class="fa-brands fa-whatsapp"></i> SOLICITAR ASESORÍA
+                    
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- ==========================================
+     SUB-MODAL: DETALLE DEL CASO DE ÉXITO
+     ========================================== -->
+<div id="case-study-modal" class="modal">
+    <div class="modal-content modal-medium">
+        <span class="close-modal-btn" onclick="closeCaseStudy()">&times;</span>
+        <div id="case-study-content">
+            <!-- El contenido dinámico del caso se inyecta desde JavaScript -->
+        </div>
+    </div>
+</div>
+
+<div id="video-fullscreen-modal" class="video-fullscreen-overlay">
+    <button class="close-video-btn" onclick="closeVideoFullscreen()" title="Cerrar video (Esc)">&times;</button>
+    <div class="video-fullscreen-container">
+        <video id="player-fullscreen" controls playsinline preload="auto">
+            <source src="videos/RedConex_Video_Corporativo_Premium.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de video HTML5.
+        </video>
+    </div>
+</div>
+
+
+
+    <!-- Pie de Página Institucional -->
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>RedConex</h3>
+                <p><i class="fa-solid fa-location-dot"></i> Calle 17 AN No. 18E-29 Urb. Niza, Cúcuta - Colombia</p>
+                <p><i class="fa-solid fa-phone"></i> Cel: 313 7779823</p>
+                <p><i class="fa-solid fa-envelope"></i> gerencia@redconex.co | contactenos@redconex.co</p>
+                <p><i class="fa-solid fa-id-card"></i> NIT: 1099426892-0</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 RedConex. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Script de Animación y Control -->
+    <script src="script.js"></script>
+</body>
+</html>
