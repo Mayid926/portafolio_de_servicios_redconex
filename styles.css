@@ -252,7 +252,10 @@ nav a:hover { color: #00a8cc; }
 
 .card-dropdown-menu li a i { color: #00a8cc; }
 
-/* VENTANAS MODALES */
+/* ==========================================
+   VENTANAS MODALES (CORREGIDO Y RESPONSIVO)
+   ========================================== */
+
 .modal {
     display: none;
     position: fixed;
@@ -281,10 +284,20 @@ nav a:hover { color: #00a8cc; }
     width: 90%;
     max-width: 920px;
     max-height: 85vh;
-    padding: 40px;
+    padding: 30px;
     position: relative;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-    overflow: hidden;
+    /* CAMBIO CLAVE: Permite scroll vertical interno si el contenido supera la pantalla */
+    overflow-y: auto; 
+}
+
+/* Personalización de la barra de scroll del modal */
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+    background: #00a8cc;
+    border-radius: 3px;
 }
 
 .close-modal-btn {
@@ -298,24 +311,25 @@ nav a:hover { color: #00a8cc; }
     z-index: 10;
 }
 
-.close-modal-btn:hover { color: #00a8cc; }
+.close-modal-btn:hover { 
+    color: #00a8cc; 
+}
 
 .modal-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    gap: 30px;
     align-items: start;
-    height: 100%;
 }
 
 .modal-info h2 {
-    font-size: 32px;
+    font-size: 28px;
     color: #ffffff;
     margin-bottom: 15px;
 }
 
 .modal-info h3 {
-    font-size: 20px;
+    font-size: 18px;
     color: #00a8cc;
     margin: 15px 0 10px 0;
 }
@@ -325,22 +339,6 @@ nav a:hover { color: #00a8cc; }
     color: #cbd5e1;
     line-height: 1.6;
     margin-bottom: 15px;
-}
-
-/* Área con scroll interno para textos largos */
-.modal-scrollable {
-    max-height: 68vh;
-    overflow-y: auto;
-    padding-right: 15px;
-}
-
-/* Personalización de la barra de scroll */
-.modal-scrollable::-webkit-scrollbar {
-    width: 6px;
-}
-.modal-scrollable::-webkit-scrollbar-thumb {
-    background: #00a8cc;
-    border-radius: 3px;
 }
 
 /* Listas con viñetas elegantes */
@@ -437,6 +435,30 @@ nav a:hover { color: #00a8cc; }
     background: #00a8cc;
     width: 25px;
     border-radius: 5px;
+}
+
+
+/* ==========================================
+   ADAPTACIÓN EXCLUSIVA PARA PANTALLAS MÓVILES
+   ========================================== */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 20px 15px;
+        max-height: 90vh; /* Mayor aprovechamiento del alto de la pantalla */
+    }
+
+    .modal-grid {
+        grid-template-columns: 1fr; /* Pasa de 2 columnas a 1 columna */
+        gap: 20px;
+    }
+
+    .modal-slider {
+        height: 220px; /* Reducción de la altura del carrusel en celulares */
+    }
+
+    .modal-info h2 {
+        font-size: 22px;
+    }
 }
 
 /* FOOTER */
