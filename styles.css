@@ -2514,3 +2514,103 @@ footer {
     flex-grow: 1;
     justify-content: space-between;
 }
+
+/* ==========================================
+   ESTILOS DE LA BARRA DE NAVEGACIÓN (.navbar)
+   ========================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: #0b1120;
+    border-bottom: 1px solid rgba(0, 168, 204, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.brand-blue {
+    color: #ffffff;
+}
+
+.brand-cyan {
+    color: #00a8cc;
+}
+
+.navbar nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+.navbar nav ul li a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+    color: #00a8cc;
+}
+
+/* Botón de Contacto destacado */
+.nav-contact-btn {
+    color: #00a8cc !important;
+    border: 1px solid #00a8cc;
+    padding: 6px 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease !important;
+}
+
+.nav-contact-btn:hover {
+    background: #00a8cc;
+    color: #0b1120 !important;
+    box-shadow: 0 0 12px rgba(0, 168, 204, 0.4);
+}
+
+
+/* ==========================================
+   AJUSTE AUTOMÁTICO PARA PANTALLAS MÓVILES
+   ========================================== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Apila el logo y la lista verticalmente */
+        gap: 12px;
+        padding: 12px 10px;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .navbar nav {
+        width: 100%;
+    }
+
+    .navbar nav ul {
+        justify-content: center; /* Centra los 3 botones en el cel */
+        gap: 15px;                /* Espaciado perfecto entre Inicio, Nosotros y Contacto */
+        flex-wrap: wrap;         /* Evita que cualquier texto se corte si la pantalla es muy angosta */
+    }
+
+    .navbar nav ul li a {
+        font-size: 0.88rem;      /* Ajusta ligeramente la fuente para pantallas móviles */
+    }
+
+    .nav-contact-btn {
+        padding: 5px 12px;
+    }
+}
