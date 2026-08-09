@@ -2636,3 +2636,48 @@ footer {
         padding: 5px 12px;
     }
 }
+
+/* ==========================================
+   CENTRADO DE TARJETAS EN PANTALLAS MÓVILES
+   ========================================== */
+
+@media (max-width: 768px) {
+
+    /* 1. Asegurar que el contenedor principal de la sección tenga padding simétrico */
+    .servicios-section, 
+    #servicios {
+        width: 100%;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        box-sizing: border-box;
+    }
+
+    /* 2. Contenedor Grid/Flexbox centrado en 1 sola columna */
+    .servicios-grid, 
+    .grid-servicios, 
+    .cards-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;     /* Centra las tarjetas horizontalmente */
+        justify-content: center !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        gap: 25px;                           /* Espacio vertical entre tarjetas */
+        padding: 0 !important;
+    }
+
+    /* 3. Estilo de la tarjeta individual para garantización de centrado */
+    .card-servicio {
+        width: 100% !important;              /* Ocupa el ancho disponible */
+        max-width: 340px !important;         /* Evita que se extienda demasiado en pantallas medianas */
+        margin: 0 auto !important;           /* Centra la tarjeta automáticamente */
+        box-sizing: border-box;
+    }
+
+    /* 4. Evitar desbordamiento de la imagen de la tarjeta */
+    .caso-img-wrapper, 
+    .card-servicio img {
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+}
