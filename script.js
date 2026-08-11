@@ -298,7 +298,7 @@ const caseStudiesData = {
         components: ["2 cargadores eléctricos vehiculares", "Sede UNAD Cúcuta", "Integración con red existente"]
     },
     3: {
-        title: "Sistema de Videovigilancia · Trituradora La Rica",
+        title: "Sistema de Videovigilancia · Trituradora La Roca",
         project: "32 canales análogos + 2 cámaras IP mediante fibra óptica",
         year: "2014–2016",
         solution: "Implementación de un sistema de videovigilancia compuesto por 32 canales análogos y 2 cámaras IP, utilizando fibra óptica para la transmisión de señal Full HD.",
